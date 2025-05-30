@@ -1,4 +1,4 @@
-
+# How do you use docker for multiple environments?
 # Using Docker for Multiple Environments
 
 Great question! Using Docker for multiple environments (like development, testing, staging, and production) is a very common scenario. The idea is to keep your Docker setup flexible so you can easily switch or customize configurations for each environment without duplicating too much code.
