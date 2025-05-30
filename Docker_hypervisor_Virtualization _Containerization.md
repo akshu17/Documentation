@@ -15,15 +15,5 @@ Hypervisors enable:
 - Isolation between environments (great for testing, development, and production)
 - Virtual infrastructure for cloud platforms
 
----
-
-## 🧱 Types of Hypervisors
-
-| Type                    | Description                  | Examples                                |
-|-------------------------|------------------------------|-----------------------------------------|
-| **Type 1 (Bare-metal)** | Runs directly on hardware     | VMware ESXi, Microsoft Hyper-V, Xen     |
-| **Type 2 (Hosted)**     | Runs on a host OS as an app   | VirtualBox, VMware Workstation, Parallels |
-
----
-
-## 🔍
+Virtualizations
+Virtualization allows you to run multiple virtual machines (VMs) or environments on a single physical machine, each functioning like a separate computer.
