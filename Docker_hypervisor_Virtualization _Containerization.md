@@ -71,24 +71,48 @@ A **Docker container** is a **running instance** of a Docker image. It is:
 - Temporary or persistent based on usage
 
 ---
+functionality of an hypervisor
+# 🖥️ Functionality of a Hypervisor
 
-## 🔍 Comparison Table
-
-| Feature             | Docker Image                   | Docker Container                      |
-|---------------------|---------------------------------|----------------------------------------|
-| Type                | Blueprint / Template            | Running instance                       |
-| State               | Static (read-only)              | Dynamic (read/write)                   |
-| Created using       | `docker build`                  | `docker run <image>`                   |
-| Purpose             | To define what to run           | To actually run the application        |
-| Persistence         | Stored permanently              | Temporary unless committed             |
-| Isolation           | Not applicable                  | Isolated environment                   |
+A **hypervisor** is a virtualization layer that allows multiple virtual machines (VMs) to run on a single physical host by abstracting and managing the underlying hardware resources.
 
 ---
 
-## 🧪 Example
+## ⚙️ Key Functionalities
 
-1. **Build Image**  
-   ```bash
-   docker build -t myapp .
+### 1. **Hardware Abstraction**
+- Abstracts CPU, memory, storage, and networking resources from the physical machine.
+- Provides each VM with virtual hardware.
+
+### 2. **Resource Allocation**
+- Dynamically allocates resources like CPU cycles, RAM, and storage to virtual machines based on demand or policies.
+
+### 3. **Isolation**
+- Ensures each virtual machine is isolated from others.
+- Prevents crashes or malware in one VM from affecting others.
+
+### 4. **VM Lifecycle Management**
+- Supports creation, start, stop, pause, snapshot, and deletion of VMs.
+- Manages the full lifecycle of virtual machines.
+
+### 5. **Performance Monitoring**
+- Tracks and logs performance of VMs and resource usage.
+- Helps in optimizing the environment and detecting issues.
+
+### 6. **Hardware Emulation**
+- Emulates devices and hardware interfaces for VMs.
+- Makes it possible for VMs to run different operating systems.
+
+### 7. **Migration and Scalability**
+- Supports **live migration** of VMs from one host to another.
+- Enables scaling workloads without downtime.
+
+### 8. **Security and Access Control**
+- Implements access control policies.
+- Manages VM-level firewalls, isolation, and user permissions.
+
+
+
+
 
 
