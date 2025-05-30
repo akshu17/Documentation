@@ -10,6 +10,17 @@ A **Dockerfile** is a plain text file that contains a set of instructions on how
 - Ensures consistency — every time you build the image, you get the same environment.
 - Easy to share and version control your application setup.
 
+- A Dockerfile is a script that contains a series of instructions to build a Docker image. The basic structure typically includes commands to define the base image, copy files, install dependencies, set environment variables, and specify the default command to run.
+Here's the typical structure of a Dockerfile:
+FROM – defines the base image
+LABEL – metadata (optional)
+WORKDIR – sets the working directory inside the container
+COPY or ADD – copies files from the host to the container
+RUN – executes commands during build (e.g., installing dependencies)
+ENV – sets environment variables
+EXPOSE – declares the port the container will use
+CMD or ENTRYPOINT – defines the default command to run
+
 ---
 
 ## Basic Structure of a Dockerfile
