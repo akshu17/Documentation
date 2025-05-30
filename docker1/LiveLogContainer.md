@@ -16,5 +16,4 @@ docker logs -f <container_id_or_name>
 You can add --tail N to show last N lines before following.
 
 
-```bash
 docker logs -f my-app-container
