@@ -33,4 +33,8 @@ A native hypervisor is like a **minimal operating system built specifically to r
 ---
 
 ## ⚙️ Architecture
-
+[Hardware]
+↑
+[Native Hypervisor (Type 1)]
+↑
+[Virtual Machines (VMs)]
