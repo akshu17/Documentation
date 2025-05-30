@@ -15,5 +15,5 @@ Hypervisors enable:
 - Isolation between environments (great for testing, development, and production)
 - Virtual infrastructure for cloud platforms
 
-Virtualizations
+## Virtualizations
 Virtualization allows you to run multiple virtual machines (VMs) or environments on a single physical machine, each functioning like a separate computer.
