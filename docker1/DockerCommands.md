@@ -105,3 +105,11 @@ docker run -it ubuntu
 | `docker-compose ps` | List containers |
 | `docker-compose logs` | View output logs |
 | `docker-compose exec <service> bash` | Run a command inside a service container |
+
+# Explanation of `docker run -it ubuntu`
+
+## The Command:
+
+```bash
+docker run -it ubuntu
+
