@@ -4,3 +4,75 @@
 
 ```bash
 docker run -it ubuntu
+```
+
+This command starts a new Ubuntu container and gives you an interactive shell to work inside it.
+
+---
+
+## Breakdown of `-it`
+
+`-it` is a combination of two flags:
+
+### `-i` = Interactive
+
+* Keeps the **input stream (STDIN)** open.
+* Lets you **type commands into the container**.
+* Without `-i`, you wouldn’t be able to interact via the terminal.
+
+### `-t` = TTY (Terminal)
+
+* Allocates a **pseudo-terminal**.
+* Makes the container's output look and behave like a regular terminal.
+* Without `-t`, the output might be hard to read or interact with.
+
+---
+
+## Summary of `-it` Together
+
+Using `-it` together means:
+
+> “Start the container and give me an interactive terminal so I can work inside it like a normal Linux shell.”
+
+---
+
+## Analogy
+
+* `-i` = You have a keyboard (you can type).
+* `-t` = You have a monitor (you can see terminal output clearly).
+
+---
+
+## Example Use
+
+```bash
+docker run -it ubuntu
+```
+
+This gives you a shell prompt like:
+
+```bash
+root@a1b2c3d4e5:/#
+```
+
+Now you can run commands inside the container, such as:
+
+```bash
+apt update
+ls
+echo "Hello from container"
+```
+
+You're now inside a fully functional Ubuntu shell inside a container.
+
+---
+
+## To Exit the Container
+
+Type:
+
+```bash
+exit
+```
+
+Or press `Ctrl + D`.
