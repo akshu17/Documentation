@@ -1,0 +1,6 @@
+# Explanation of `docker run -it ubuntu`
+
+## The Command:
+
+```bash
+docker run -it ubuntu
