@@ -10,64 +10,49 @@ This command starts a new Ubuntu container and gives you an interactive shell to
 
 ---
 
-## Breakdown of `-it`
+## 🚀 What it does:
 
-`-it` is a combination of two flags:
-
-### `-i` = Interactive
-
-* Keeps the **input stream (STDIN)** open.
-* Lets you **type commands into the container**.
-* Without `-i`, you wouldn’t be able to interact via the terminal.
-
-### `-t` = TTY (Terminal)
-
-* Allocates a **pseudo-terminal**.
-* Makes the container's output look and behave like a regular terminal.
-* Without `-t`, the output might be hard to read or interact with.
+It **starts a new Ubuntu container** and gives you an **interactive terminal session** inside it.
 
 ---
 
-## Summary of `-it` Together
+## 🔍 Breakdown:
 
-Using `-it` together means:
+* **`docker run`**
+  Creates and starts a new container from an image.
 
-> “Start the container and give me an interactive terminal so I can work inside it like a normal Linux shell.”
+* **`-it`**
+  Two flags combined:
+
+  * `-i` (**interactive**): Keeps STDIN open so you can type into the container.
+  * `-t` (**TTY**): Allocates a terminal so the shell behaves like a real one.
+
+* **`ubuntu`**
+  Tells Docker to use the official **Ubuntu** image.
 
 ---
 
-## Analogy
+## 🧪 What Happens:
 
-* `-i` = You have a keyboard (you can type).
-* `-t` = You have a monitor (you can see terminal output clearly).
-
----
-
-## Example Use
-
-```bash
-docker run -it ubuntu
-```
-
-This gives you a shell prompt like:
-
-```bash
-root@a1b2c3d4e5:/#
-```
-
-Now you can run commands inside the container, such as:
+* Docker pulls the `ubuntu` image if it's not already on your system.
+* A new container starts with a shell (`/bin/bash`) by default.
+* You’re placed **inside the Ubuntu container’s terminal**, where you can run commands like:
 
 ```bash
 apt update
 ls
-echo "Hello from container"
+echo "Hello from inside the container"
 ```
 
-You're now inside a fully functional Ubuntu shell inside a container.
+You’ll see a prompt like:
+
+```bash
+root@container-id:/#
+```
 
 ---
 
-## To Exit the Container
+## 🔚 To Exit the Container:
 
 Type:
 
@@ -76,3 +61,10 @@ exit
 ```
 
 Or press `Ctrl + D`.
+
+---
+
+## Analogy
+
+* `-i` = You have a keyboard (you can type).
+* `-t` = You have a monitor (you can see terminal output clearly).
