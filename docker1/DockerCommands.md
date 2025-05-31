@@ -1,5 +1,8 @@
 # 🐳 Docker Command Cheat Sheet
 
+
+
+
 ## Basic Docker Commands
 | Command | Description |
 |--------|-------------|
@@ -21,6 +24,14 @@
 | `docker load -i <file.tar>` | Load image from tar file |
 | `docker import <url\|file>` | Import an image from a tarball |
 | `docker export <container>` | Export a container's filesystem as a tar archive |
+
+# Explanation of `docker run -it ubuntu`
+
+## The Command:
+
+```bash
+docker run -it ubuntu
+
 
 ---
 
