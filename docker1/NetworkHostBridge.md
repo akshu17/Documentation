@@ -9,6 +9,15 @@ Docker provides various networking drivers to manage how containers communicate 
 
 ### ✅ Definition:
 The **bridge** network is the default network driver for containers. When you create a container, it is connected to a virtual bridge (`docker0`) that allows communication with other containers on the same network via internal IPs.
+# Docker Network: Bridge
+
+1. **Bridge**
+
+- This is a private internal network created by Docker on the host machine by the name `docker0`.
+- This is the default network type for all containers which are created without any network configurations.
+- By default, all the containers in the same bridge can communicate with each other without any extra configuration.
+- We **cannot use container names** for communication; only **IP addresses** are allowed in the default bridge.
+
 
 ### 📦 Use Case:
 Use this when you want **container-to-container communication** without exposing all ports to the host.
