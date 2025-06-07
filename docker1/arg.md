@@ -1,49 +1,31 @@
-# 🐳 ARG in Docker
+# ARG in Docker
 
-## 📘 What is `ARG`?
+## 🔹 What is `ARG`?
 
-`ARG` is a Dockerfile instruction used to define **build-time variables**. These variables are available **only during the image build** process, and not inside the running container (unless passed into `ENV`).
+`ARG` is a Dockerfile instruction used to define **build-time variables**. These variables can be passed to the Docker build process using the `--build-arg` flag and are available **only during the image build**, not in the running container.
 
 ---
 
-## 🛠️ Syntax
+## 🧠 Key Points
+
+| Feature             | Details                                           |
+|---------------------|---------------------------------------------------|
+| Scope               | Build-time only (not available after container starts) |
+| Default Value       | Can be set in the Dockerfile                     |
+| Overridable         | Yes, via `--build-arg` during `docker build`     |
+| Visibility          | Not visible inside the container after build     |
+
+---
+
+## 🧪 Example 1
+
+### Dockerfile
 
 ```dockerfile
-ARG <variable_name>[=<default_value>]
-Example 1: Using ARG with Default Value
+# Define build-time argument
+ARG VERSION=1.0
 
-Dockerfile:
-FROM alpine
-ARG APP_VERSION=1.0
-RUN echo "Building app version $APP_VERSION"
-Build Command:
-docker build -t myapp .
-Output:
-Building app version 1.0
-🧪 Example 2: Overriding ARG During Build
+# Use the ARG
+FROM ubuntu:${VERSION}
 
-Build Command with Override:
-docker build -t myapp --build-arg APP_VERSION=2.5 .
-Output:
-Building app version 2.5
-🧪 Example 3: Using ARG to Set ENV
-
-FROM ubuntu
-ARG USER_NAME
-ENV USER_NAME=${USER_NAME}
-RUN echo "Container user is $USER_NAME"
-Build:
-docker build -t testimage --build-arg USER_NAME=admin .
-Run:
-docker run testimage
-# Output: Container user is admin
-Here, we pass the ARG into ENV so it's available at runtime too.
-
-🧠 Key Points
-
-Feature	Details
-Scope	Build-time only
-Overridable	✅ Yes, using --build-arg
-Default Value	✅ Optional
-Runtime Availability	❌ No, unless passed into ENV
-Use Case	Customize build without hardcoding values
+RUN echo "Building with Ubuntu version: ${VERSION}"
