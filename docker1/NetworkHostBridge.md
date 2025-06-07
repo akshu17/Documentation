@@ -31,6 +31,15 @@ docker run -it --name app2 --network my_bridge_net alpine ping app1
 
 ### 📌 Result:
 `app2` can ping `app1` using the name `app1`.
+# Docker Network: Custom Bridge
+
+## Creating a Custom Bridge Network
+
+To create a custom bridge network, use the following command:
+
+```bash
+docker network create --driver bridge my_bridge
+
 
 ---
 
