@@ -33,27 +33,7 @@ docker run -it --name app2 --network my_bridge_net alpine ping app1
 `app2` can ping `app1` using the name `app1`.
 # Docker Network: Custom Bridge
 
-## Creating a Custom Bridge Network
 
-To create a custom bridge network, use the following command:
-
-```bash
-docker network create --driver bridge my_bridge
-
-
----
-
-## 🔹 2. Host Network
-
-### ✅ Definition:
-In the **host** network mode, the container shares the **host machine’s network stack**. It doesn’t get its own IP or ports — it uses the host’s IP address directly.
-
-### 📦 Use Case:
-Use this for performance (lower latency) or when your app needs direct access to host networking (e.g., running on specific ports).
-
-### 🔧 Example:
-```bash
-docker run --rm --network host nginx
 ```
 
 ### 📌 Result:
