@@ -29,17 +29,6 @@ docker run -d --name app1 --network my_bridge_net alpine sleep 3600
 docker run -it --name app2 --network my_bridge_net alpine ping app1
 ```
 
-### 📌 Result:
-`app2` can ping `app1` using the name `app1`.
-# Docker Network: Custom Bridge
-
-
-```
-
-### 📌 Result:
-Nginx runs and listens on `http://localhost:80` — just like a regular process on the host.
-
-**Note:** Host mode only works on Linux.
 
 ---
 
