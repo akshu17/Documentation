@@ -29,3 +29,13 @@ ARG VERSION=1.0
 FROM ubuntu:${VERSION}
 
 RUN echo "Building with Ubuntu version: ${VERSION}"
+
+# 🧪 ARG in Docker – Example 2
+
+## Dockerfile
+
+```dockerfile
+FROM alpine
+ARG MY_NAME
+RUN echo "Hello, $MY_NAME"
+
