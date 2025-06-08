@@ -4,6 +4,24 @@
 ---
 
 ### 1. What is Entrypoint in Docker?
+## What is ENTRYPOINT in Docker?
+
+In Docker, the `ENTRYPOINT` instruction specifies the **main command** that will always run when a container starts. It defines the executable that the container runs and is ideal when you want to build containers that behave like standalone applications.
+
+### 🔹 Key Points:
+- Sets the main application of the container.
+- Cannot be overridden easily using `docker run` arguments.
+- Works in conjunction with `CMD` to pass default parameters.
+- Best used in **exec form** for proper signal handling.
+
+---
+
+### ✅ Example:
+
+```dockerfile
+FROM ubuntu
+ENTRYPOINT ["echo"]
+CMD ["Hello from Docker!"]
 
 **Answer:**
 
