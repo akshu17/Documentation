@@ -1,0 +1,38 @@
+# Java Container Restart Issues
+
+When dealing with **Java container restart issues**, the problem can stem from several areas including resource constraints, application bugs, container configuration, or external dependencies. To help you better, I’ll outline common causes and troubleshooting tips:
+
+## Common Causes of Java Container Restart Issues
+
+1. **Out of Memory (OOM) Errors:**
+   - Java apps often run out of heap or native memory.
+   - Containers have limited memory; JVM inside the container may not be tuned properly.
+   - Check container logs for `java.lang.OutOfMemoryError`.
+   - Check Docker or Kubernetes events for OOMKilled status.
+
+2. **Crash Loop / Rapid Restarts:**
+   - JVM crashes due to segmentation faults (`SIGSEGV`) or other fatal errors.
+   - Application exceptions that cause the JVM process to exit.
+   - Misconfigured JVM options or incompatible Java versions.
+
+3. **Health Check Failures:**
+   - Liveness/readiness probes in Kubernetes or Docker health checks fail repeatedly.
+   - Causes orchestrator to restart the container.
+
+4. **Improper JVM Flags:**
+   - Incorrect JVM tuning can cause excessive CPU usage or GC pauses, causing timeouts.
+   - Wrong heap sizes or memory limits conflicting with container limits.
+
+5. **External Dependencies Failing:**
+   - App waiting on external services (DB, APIs), causing timeouts or deadlocks.
+   - The container orchestrator may restart the container thinking it’s unhealthy.
+
+6. **Container or Host-Level Resource Constraints:**
+   - CPU throttling or disk I/O bottlenecks.
+   - Network failures or DNS resolution issues.
+
+---
+
+## Troubleshooting Steps
+
+1. **Check Container Logs:**
