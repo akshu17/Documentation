@@ -2,13 +2,15 @@
 
 ## 🔑 Pod Phases
 
-| Phase         | Description                                                                    |
-| ------------- | ------------------------------------------------------------------------------ |
-| **Pending**   | Pod accepted but not yet running (e.g., waiting for scheduling or image pull). |
-| **Running**   | Pod scheduled, containers created, at least one container running.             |
-| **Succeeded** | All containers terminated successfully (exit code 0) and will not restart.     |
-| **Failed**    | All containers terminated, at least one failed (non-zero exit code).           |
-| **Unknown**   | Kubernetes cannot determine Pod state (e.g., Node unreachable).                |
+According to Kubernetes, a **Pod** can be in one of these high-level phases:
+
+| Phase         | Meaning                                                                                                                                              |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Pending**   | Pod is accepted by the Kubernetes cluster, but one or more containers are not yet created (e.g., images are still downloading or no available node). |
+| **Running**   | Pod is scheduled to a node, containers are created, at least one container is running and ready to serve requests.                                   |
+| **Succeeded** | All containers in the Pod have successfully terminated (exit code 0), and will not restart.                                                          |
+| **Failed**    | All containers have terminated, but at least one container failed (non-zero exit code).                                                              |
+| **Unknown**   | Kubernetes can’t determine the Pod’s state (e.g., communication issue with the Node).                                                                |
 
 ---
 
