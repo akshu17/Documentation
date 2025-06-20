@@ -30,3 +30,27 @@ content = """
 ```bash
 kubectl get pods -o wide
 kubectl describe pod <pod-name>
+Look at READY column: should be 1/1.
+Check Events for readiness probe failures.
+2️⃣ Check Service Endpoints
+Always show details
+
+kubectl get svc
+kubectl describe svc <service-name>
+kubectl get endpoints <service-name>
+Ensure both Pod IPs are listed as Endpoints.
+3️⃣ Check Pod logs
+Always show details
+
+kubectl logs <pod-name>
+Look for errors, crashes, or failed health checks.
+4️⃣ Check session affinity
+Always show details
+
+kubectl get svc <service-name> -o yaml | grep sessionAffinity
+If ClientIP, same client always uses same Pod.
+5️⃣ Check network policies
+Always show details
+
+kubectl get networkpolicy
+Ensure no policy blocks Pod-to-Pod or Service traffic.
