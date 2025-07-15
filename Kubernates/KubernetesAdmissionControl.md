@@ -1,83 +1,71 @@
-# 🌐 Handling Multi-Cluster Kubernetes Deployments
+# 🛂 What is Kubernetes Admission Control?
 
-Managing deployments across multiple Kubernetes clusters is essential for high availability, geo-distribution, compliance, and disaster recovery. Below are key strategies, tools, and best practices for handling multi-cluster Kubernetes deployments:
-
----
-
-## 🚀 1. Use a Centralized Control Plane (Optional)
-
-* Tools like **Rancher**, **Open Cluster Management (OCM)**, and **Anthos** provide a unified interface to manage multiple clusters.
-* Enables policy enforcement, access control, and workload management from a single dashboard.
+Kubernetes Admission Controllers are plugins that intercept requests to the Kubernetes API server **after** authentication and authorization, but **before** the object is persisted in etcd. They allow you to validate, mutate, or reject requests based on custom or predefined policies.
 
 ---
 
-## 🔄 2. Cluster Federation (KubeFed)
+## 🔄 Kubernetes Request Lifecycle
 
-* Kubernetes **Federation v2 (KubeFed)** can deploy workloads across clusters with synchronization.
+1. **Authentication** – Verifies identity.
+2. **Authorization** – Checks permissions.
+3. **Admission Control** ✅ – Mutate or validate request.
+4. **etcd Persistence** – Saves the object.
 
-```bash
-kubefedctl join cluster1 --host-cluster-context=host --add-to-registry
+---
+
+## 🎯 Types of Admission Controllers
+
+### 1. **Validating Admission Controllers**
+
+* Inspect the object and can reject it.
+* Example: Reject pods without resource limits.
+
+### 2. **Mutating Admission Controllers**
+
+* Modify or add fields to an object.
+* Example: Inject sidecar containers or default labels.
+
+---
+
+## ⚙️ Common Built-in Admission Controllers
+
+| Name                         | Purpose                                |
+| ---------------------------- | -------------------------------------- |
+| `NamespaceLifecycle`         | Prevents use of terminated namespaces  |
+| `LimitRanger`                | Enforces resource limits               |
+| `ServiceAccount`             | Automatically assigns service accounts |
+| `PodSecurity`                | Enforces security policies             |
+| `MutatingAdmissionWebhook`   | Allows external mutation               |
+| `ValidatingAdmissionWebhook` | Allows external validation             |
+
+---
+
+## 🧰 Webhook-Based Admission Controllers
+
+* Define custom logic using webhooks.
+* Kubernetes sends admission requests to external HTTP services.
+
+```yaml
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+...
 ```
 
-* Allows deploying resources like Deployments, ConfigMaps, and Secrets across clusters.
+---
 
-🔸 Use case: Global availability with data locality.
+## 🔐 Use Cases
+
+* Enforcing image policies (e.g., no `latest` tag)
+* Injecting monitoring/logging sidecars
+* Validating required labels or annotations
+* Blocking privileged containers
 
 ---
 
-## 🔐 3. Identity & Access Management
+## ✅ Summary
 
-* Use **OIDC** or **SSO** solutions for unified authentication across clusters.
-* Leverage **RBAC policies** that are consistently applied in all clusters.
+* Admission controllers enforce policies at the API level.
+* They help secure, validate, and customize object creation and updates.
+* Use both built-in and custom webhook controllers to extend Kubernetes functionality.
 
----
-
-## 🔁 4. GitOps Across Clusters
-
-* Use **ArgoCD** or **Flux** to sync Git repositories to multiple clusters.
-* Separate application manifests by cluster context or use Kustomize overlays.
-
-```bash
-argocd cluster add <context>
-```
-
-🔸 Enables version control, auditability, and automation.
-
----
-
-## 📡 5. Inter-Cluster Communication
-
-* Use service meshes like **Istio**, **Linkerd**, or **Cilium** for secure service-to-service communication.
-* Deploy **multi-cluster gateways** to enable service discovery and traffic routing.
-
----
-
-## 📦 6. Application Placement Strategies
-
-* Use **labels, taints, and node affinity** to manage where apps are deployed.
-* Consider deploying critical services in active-active or active-passive modes.
-
----
-
-## 📊 7. Monitoring & Logging
-
-* Use centralized tools like:
-
-  * **Prometheus Thanos** (metrics aggregation)
-  * **Loki or Elasticsearch** (logging)
-  * **Grafana** dashboards per cluster
-
----
-
-## ✅ Summary Table
-
-| Aspect            | Tools/Techniques      |
-| ----------------- | --------------------- |
-| Management        | Rancher, Anthos, OCM  |
-| Federation        | KubeFed               |
-| GitOps            | ArgoCD, Flux          |
-| Identity & Access | OIDC, RBAC, SSO       |
-| Observability     | Thanos, Grafana, Loki |
-| Service Mesh      | Istio, Linkerd        |
-
-Would you like a GitOps folder structure or sample multi-cluster manifest templates?
+Would you like an example webhook configuration or setup guide?
