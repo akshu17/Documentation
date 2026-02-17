@@ -1,0 +1,15 @@
+# Types of Git Branching Strategies — 1 Minute Interview Answer
+
+**“There are several common Git branching strategies used in software development.**
+
+The most structured one is **Git Flow**, which uses separate branches like `main`, `develop`, feature, release, and hotfix branches. It’s ideal for large teams and planned releases.
+
+**GitHub Flow**, introduced by GitHub, is simpler. It uses one main branch with short-lived feature branches and supports continuous deployment.
+
+**GitLab Flow**, from GitLab, combines feature branching with environment-based branches like staging and production.
+
+Another approach is **Trunk-Based Development**, where developers frequently merge small changes into a single main branch.
+
+Finally, **Release Branching** is used when maintaining multiple software versions.
+
+Each strategy is chosen based on team size, release process, and deployment needs.”**
