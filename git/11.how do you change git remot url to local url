@@ -1,0 +1,75 @@
+# Change Git Remote URL to a Local Repository
+
+You can update your Git remote URL to point to a **local repository path** instead of an online URL.
+
+---
+
+## ✅ Step 1 — Check Current Remote URL
+
+```bash
+git remote -v
+```
+
+Example output:
+
+```
+origin  https://example.com/repo.git (fetch)
+origin  https://example.com/repo.git (push)
+```
+
+---
+
+## ✅ Step 2 — Set Remote URL to Local Path
+
+Use `git remote set-url` and provide the local repository path.
+
+### Linux / macOS
+
+```bash
+git remote set-url origin /home/user/projects/my-local-repo.git
+```
+
+### Windows
+
+```bash
+git remote set-url origin C:\Users\user\projects\my-local-repo.git
+```
+
+---
+
+## ✅ Step 3 — Verify the Change
+
+```bash
+git remote -v
+```
+
+Now the remote should display your local path.
+
+---
+
+## 📌 Alternative Using File Protocol
+
+```bash
+git remote set-url origin file:///home/user/projects/my-local-repo.git
+```
+
+---
+
+## 🔄 Alternative Method (Remove and Add Remote)
+
+```bash
+git remote remove origin
+git remote add origin /path/to/local/repo.git
+```
+
+---
+
+## 🧠 Summary
+
+Changing the remote URL to a local path allows Git to:
+
+* Push to a local repository
+* Pull from a local repository
+* Work without a remote server
+
+---
