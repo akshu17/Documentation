@@ -1,0 +1,67 @@
+# 🌿 How to Check Branch Name in Git
+
+This guide explains different ways to check your current branch name in
+Git.
+
+------------------------------------------------------------------------
+
+## ✅ Method 1 --- Show Current Branch (Common Method)
+
+``` bash
+git branch
+```
+
+Example output:
+
+    * main
+      feature-login
+
+The branch with `*` is your current branch.
+
+------------------------------------------------------------------------
+
+## ✅ Method 2 --- Show Only Current Branch Name (Recommended)
+
+``` bash
+git branch --show-current
+```
+
+Example output:
+
+    main
+
+This command prints only the branch name.
+
+------------------------------------------------------------------------
+
+## ✅ Method 3 --- Using Git Status
+
+``` bash
+git status
+```
+
+Example output:
+
+    On branch main
+
+------------------------------------------------------------------------
+
+## 🧠 Summary
+
+  Command                     Purpose
+  --------------------------- -------------------------------------------
+  git branch                  Shows all branches and highlights current
+  git branch --show-current   Shows only current branch name
+  git status                  Shows branch along with repository status
+
+------------------------------------------------------------------------
+
+## ⭐ Best Practice
+
+Use:
+
+``` bash
+git branch --show-current
+```
+
+It is the simplest and cleanest way to check your branch name.
