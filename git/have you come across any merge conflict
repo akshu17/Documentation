@@ -1,0 +1,160 @@
+# 🔀 Merge Conflicts in Git --- Complete Guide
+
+A **merge conflict** occurs when Git cannot automatically combine
+changes from different branches.
+
+This usually happens when two branches modify the same part of a file
+differently, and Git cannot decide which version to keep.
+
+------------------------------------------------------------------------
+
+## 🎯 Why Merge Conflicts Happen
+
+Common reasons:
+
+-   Two people edit the **same line** of a file
+-   One branch deletes a file while another modifies it
+-   Changes overlap in the same section of code
+-   Branches diverged for a long time before merging
+
+Git stops the merge and asks you to resolve it manually.
+
+------------------------------------------------------------------------
+
+## 📄 What a Merge Conflict Looks Like
+
+Git marks conflicts inside the file:
+
+    <<<<<<< HEAD
+    Your current branch changes
+    =======
+    Incoming branch changes
+    >>>>>>> feature-branch
+
+Meaning:
+
+-   `HEAD` → your current branch
+-   `feature-branch` → branch being merged
+-   You must choose or combine content
+
+------------------------------------------------------------------------
+
+## 🛠 Step-by-Step: Fix a Merge Conflict
+
+### 1️⃣ Attempt to merge
+
+``` bash
+git merge branch-name
+```
+
+Git reports conflict.
+
+------------------------------------------------------------------------
+
+### 2️⃣ Open conflicted file
+
+Look for markers:
+
+    <<<<<<<
+    =======
+    >>>>>>>
+
+------------------------------------------------------------------------
+
+### 3️⃣ Edit file manually
+
+-   Choose correct code
+-   Or combine both versions
+-   Remove conflict markers
+
+------------------------------------------------------------------------
+
+### 4️⃣ Stage resolved file
+
+``` bash
+git add <file>
+```
+
+------------------------------------------------------------------------
+
+### 5️⃣ Complete merge
+
+``` bash
+git commit
+```
+
+Merge conflict resolved.
+
+------------------------------------------------------------------------
+
+## 🧪 Example
+
+Branch A:
+
+    color = blue
+
+Branch B:
+
+    color = red
+
+Resolve by choosing:
+
+    color = blue
+
+Or:
+
+    color = blue  # updated from red discussion
+
+------------------------------------------------------------------------
+
+## ❌ Abort Merge (If Needed)
+
+Cancel merge completely:
+
+``` bash
+git merge --abort
+```
+
+Restores previous state.
+
+------------------------------------------------------------------------
+
+## 🧯 Check Conflict Status
+
+``` bash
+git status
+```
+
+Shows files with conflicts.
+
+------------------------------------------------------------------------
+
+## 🧠 Best Practices to Avoid Merge Conflicts
+
+-   Pull latest changes frequently
+-   Work on small focused branches
+-   Communicate with team members
+-   Avoid editing same files simultaneously
+-   Merge regularly, not after long delays
+
+------------------------------------------------------------------------
+
+## 📊 Quick Command Summary
+
+  Task            Command
+  --------------- -----------------------
+  Merge branch    git merge branch-name
+  See conflicts   git status
+  Fix conflict    edit file manually
+  Mark resolved   git add file
+  Finish merge    git commit
+  Cancel merge    git merge --abort
+
+------------------------------------------------------------------------
+
+## ✅ Key Takeaway
+
+Merge conflicts are normal in Git.\
+They simply require manual review and decision-making.
+
+Once resolved and committed, development continues normally.
