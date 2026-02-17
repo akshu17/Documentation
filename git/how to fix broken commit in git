@@ -1,0 +1,155 @@
+# 🔧 Fixing a Broken Commit in Git
+
+A **broken commit** usually means something is wrong with a commit, such
+as:
+
+-   Wrong files committed
+-   Missing changes
+-   Incorrect commit message
+-   Code that breaks the build
+-   Commit already pushed with mistakes
+
+The fix depends on whether the commit is local or already pushed.
+
+------------------------------------------------------------------------
+
+## 🧭 Step 1 --- Identify the Problem
+
+Check commit history:
+
+``` bash
+git log --oneline
+```
+
+Find the commit that needs fixing.
+
+------------------------------------------------------------------------
+
+## ✏️ Fix the Most Recent Commit (Not Pushed)
+
+### ✅ Modify commit content or message
+
+``` bash
+git add .
+git commit --amend
+```
+
+This lets you: - Add missing changes - Remove mistakes - Edit commit
+message
+
+⚠️ Do not use this if the commit is already pushed (unless you
+understand force push).
+
+------------------------------------------------------------------------
+
+## 🔁 Fix an Older Local Commit (Not Pushed)
+
+Use interactive rebase:
+
+``` bash
+git rebase -i HEAD~3
+```
+
+Replace `3` with how many commits back to edit.
+
+Then choose: - `pick` → keep commit - `edit` → modify commit - `reword`
+→ change message
+
+After editing:
+
+``` bash
+git commit --amend
+git rebase --continue
+```
+
+------------------------------------------------------------------------
+
+## 🚫 Fix a Commit That Was Already Pushed
+
+### Option 1 --- Revert safely (recommended for shared repos)
+
+``` bash
+git revert <commit_hash>
+```
+
+Creates a new commit that reverses the bad one.
+
+Safe for team environments.
+
+------------------------------------------------------------------------
+
+### Option 2 --- Force rewrite history (advanced)
+
+``` bash
+git commit --amend
+git push --force
+```
+
+⚠️ Dangerous if others are using the repository.
+
+Only use if you are sure.
+
+------------------------------------------------------------------------
+
+## 🧹 Remove the Last Commit Completely
+
+Keep changes staged:
+
+``` bash
+git reset --soft HEAD~1
+```
+
+Keep changes but unstaged:
+
+``` bash
+git reset --mixed HEAD~1
+```
+
+Delete commit and changes:
+
+``` bash
+git reset --hard HEAD~1
+```
+
+------------------------------------------------------------------------
+
+## 🧯 Recover a Lost Commit (If Deleted by Mistake)
+
+View reference log:
+
+``` bash
+git reflog
+```
+
+Restore commit:
+
+``` bash
+git checkout <commit_hash>
+```
+
+Or reset back:
+
+``` bash
+git reset --hard <commit_hash>
+```
+
+------------------------------------------------------------------------
+
+## 🧠 Quick Summary
+
+  Situation                   Command
+  --------------------------- --------------------
+  Fix last commit             git commit --amend
+  Fix older local commit      git rebase -i
+  Undo pushed commit safely   git revert
+  Remove last commit          git reset
+  Recover lost commit         git reflog
+
+------------------------------------------------------------------------
+
+## ✅ Best Practice
+
+-   Use `--amend` only before pushing
+-   Use `revert` for shared repositories
+-   Avoid `--force` unless necessary
+-   Always check history before changing it
