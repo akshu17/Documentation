@@ -1,0 +1,125 @@
+# Git Stash — Explanation & Commands
+
+`git stash` is used to **temporarily save uncommitted changes** so you can switch branches or work on something else without committing unfinished work.
+
+It acts like a **temporary storage (shelf)** for your changes.
+
+---
+
+## 🧠 Why Use `git stash`?
+
+Use stash when you have changes but need to:
+
+* Switch branches
+* Pull latest code
+* Fix an urgent bug
+* Pause current work without committing
+
+Instead of committing incomplete code, you can stash it and restore it later.
+
+---
+
+## 📦 What Happens When You Stash?
+
+```
+Working directory → saved in stash → working directory becomes clean
+```
+
+Your files revert to the last committed state.
+
+---
+
+## 🛠 Common `git stash` Commands
+
+### ✅ Save current changes
+
+```bash
+git stash
+```
+
+---
+
+### ✅ Save stash with a message
+
+```bash
+git stash push -m "Work in progress on login feature"
+```
+
+---
+
+### ✅ View stashed items
+
+```bash
+git stash list
+```
+
+Example:
+
+```
+stash@{0}: WIP on feature/login
+stash@{1}: WIP on payment
+```
+
+---
+
+### ✅ Apply last stash (keep it saved)
+
+```bash
+git stash apply
+```
+
+---
+
+### ✅ Apply and remove stash
+
+```bash
+git stash pop
+```
+
+---
+
+### ✅ Apply specific stash
+
+```bash
+git stash apply stash@{1}
+```
+
+---
+
+### ✅ Delete a specific stash
+
+```bash
+git stash drop stash@{0}
+```
+
+---
+
+### ✅ Remove all stashes
+
+```bash
+git stash clear
+```
+
+---
+
+## 🧭 Example Workflow
+
+```bash
+git stash
+git checkout main
+git pull
+git checkout feature/login
+git stash pop
+```
+
+---
+
+## 🧠 Simple Summary
+
+`git stash` allows you to:
+
+* Save unfinished work temporarily
+* Clean your working directory
+* Restore work later when ready
+
+---
