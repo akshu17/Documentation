@@ -1,0 +1,9 @@
+# Git Merge vs Git Rebase — 1 Minute Interview Answer
+
+**“Both `git merge` and `git rebase` are used to integrate changes from one branch into another, but they handle history differently.**
+
+`git merge` combines two branches and creates a **merge commit**, preserving the full history and showing when branches were joined. It’s safe for shared branches and is commonly used in team environments.
+
+`git rebase`, on the other hand, moves or replays your commits on top of another branch, creating a **linear and cleaner history**. However, it rewrites commit history, so it should only be used on local or private branches.
+
+**In short, merge preserves history, while rebase creates a clean linear history but rewrites commits.”**
