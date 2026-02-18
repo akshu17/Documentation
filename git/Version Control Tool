@@ -1,0 +1,112 @@
+# Version Control Tool — Markdown Notes
+
+## What is a Version Control Tool?
+
+A **Version Control System (VCS)** is software that helps track, manage, and organize changes to files over time — especially source code.
+
+It allows you to:
+
+* Track changes
+* Restore previous versions
+* Collaborate with team members
+* Manage multiple versions of a project safely
+
+---
+
+## Why Version Control is Important
+
+Without version control:
+
+* Files get overwritten accidentally
+* Collaboration becomes difficult
+* No history of changes
+* Hard to restore older versions
+
+With version control:
+
+* Every change is recorded
+* Easy team collaboration
+* Safe experimentation using branches
+* Ability to roll back to previous versions
+
+---
+
+## Key Features
+
+### 1. Version History
+
+Records:
+
+* Who made changes
+* When changes were made
+* What was changed
+
+### 2. Collaboration
+
+Multiple developers can work on the same project simultaneously.
+
+### 3. Branching
+
+Create separate working versions of a project to develop features independently.
+
+### 4. Merging
+
+Combine changes from different branches into one version.
+
+### 5. Rollback / Restore
+
+Revert to previous versions if something breaks.
+
+---
+
+## Types of Version Control Systems
+
+### Local Version Control
+
+Tracks changes on a single computer.
+
+### Centralized Version Control (CVCS)
+
+* One central server stores project files
+* Users connect to the server
+* Requires internet connection
+
+### Distributed Version Control (DVCS)
+
+* Every user has a full repository copy
+* Works offline
+* Faster and more secure
+
+---
+
+## Popular Version Control Platforms
+
+* GitHub
+* GitLab
+* Bitbucket
+
+---
+
+## Benefits of Version Control
+
+* Tracks project history
+* Prevents data loss
+* Improves teamwork
+* Enables safe testing
+* Supports large projects
+
+---
+
+## Real-World Uses
+
+* Software development
+* Web development
+* Data science projects
+* Documentation management
+* Design collaboration
+
+---
+
+## Summary
+
+A version control tool is a system that records file changes, manages collaboration, and helps maintain project history safely and efficiently.
