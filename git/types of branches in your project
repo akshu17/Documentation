@@ -1,0 +1,142 @@
+# Types of Branches in a Software Project
+
+In most software development projects, teams use multiple types of branches to organize work, manage releases, and maintain stable production code. Many teams follow a structure similar to Git Flow.
+
+---
+
+## 1. Main / Master Branch
+
+**Purpose:** Production-ready code
+
+* Contains stable and tested code
+* Always deployable
+* Direct commits are usually restricted
+* Code is merged only after review and testing
+
+This branch represents the live application.
+
+---
+
+## 2. Develop Branch
+
+**Purpose:** Integration branch for ongoing development
+
+* All completed features are merged here
+* Used for testing combined changes
+* May not always be production-ready
+
+This branch represents the next release under development.
+
+---
+
+## 3. Feature Branch
+
+**Purpose:** Develop new features
+
+* Created from the develop branch
+* One branch per feature
+* Merged back into develop after completion
+
+**Examples**
+
+* feature/login-page
+* feature/payment-integration
+
+Keeps new work isolated from stable code.
+
+---
+
+## 4. Bugfix Branch
+
+**Purpose:** Fix bugs found during development
+
+* Usually created from develop
+* Merged back into develop after fixing
+
+**Example**
+
+* bugfix/header-alignment
+
+Used for non-critical fixes before release.
+
+---
+
+## 5. Hotfix Branch
+
+**Purpose:** Urgent fixes for production issues
+
+* Created from main
+* Fix applied immediately
+* Merged back into both main and develop
+
+**Example**
+
+* hotfix/payment-crash
+
+Used when production is broken and needs immediate repair.
+
+---
+
+## 6. Release Branch
+
+**Purpose:** Prepare code for a new release
+
+* Created from develop
+* Only bug fixes and testing allowed
+* Merged into main and develop after release
+
+**Example**
+
+* release/v1.2.0
+
+Helps stabilize code before deployment.
+
+---
+
+## 7. Experimental / Spike Branch (Optional)
+
+**Purpose:** Testing ideas or research
+
+* Temporary branch
+* May or may not be merged
+
+**Example**
+
+* experiment/new-ui-design
+
+Used for trying new approaches safely.
+
+---
+
+## Typical Branch Flow
+
+feature / bugfix → develop → release → main
+hotfix → main → develop
+
+---
+
+## Why Use Multiple Branch Types?
+
+* Safe development environment
+* Organized workflow
+* Parallel work by teams
+* Controlled releases
+* Quick emergency fixes
+
+---
+
+## Summary
+
+| Branch Type  | Purpose                        |
+| ------------ | ------------------------------ |
+| Main         | Production-ready code          |
+| Develop      | Ongoing development            |
+| Feature      | New functionality              |
+| Bugfix       | Fix development issues         |
+| Hotfix       | Urgent production fixes        |
+| Release      | Prepare version for deployment |
+| Experimental | Testing ideas                  |
+
+---
+
+Using structured branching helps teams manage code efficiently, reduce errors, and maintain a stable production environment.
