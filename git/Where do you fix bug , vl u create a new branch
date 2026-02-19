@@ -1,0 +1,156 @@
+# Bug Fix Workflow in Git (Development vs Production)
+
+This guide explains **where to fix bugs**, whether to create a new branch, and how bug fixes are managed in the next release.
+
+---
+
+## 1. Bug Found During Development (Not Released Yet)
+
+If the bug exists in code that has **not been deployed to production**, fix it using a **bugfix branch**.
+
+### Step 1 — Create a bugfix branch from develop
+
+```bash
+git checkout develop
+git pull
+git checkout -b bugfix/<bug-name>
+```
+
+---
+
+### Step 2 — Fix the bug and commit changes
+
+```bash
+git add .
+git commit -m "Fix <bug description>"
+```
+
+---
+
+### Step 3 — Merge bugfix branch into develop
+
+```bash
+git checkout develop
+git merge bugfix/<bug-name>
+```
+
+(Optional) delete the branch:
+
+```bash
+git branch -d bugfix/<bug-name>
+```
+
+---
+
+### Step 4 — Included in the next release
+
+When a release branch is created from develop, the bug fix is automatically included.
+
+No additional steps are required.
+
+---
+
+## 2. Bug Found in Production (Live Application)
+
+If the bug affects users in production, fix it using a **hotfix branch**.
+
+This allows immediate repair without waiting for the next release cycle.
+
+---
+
+### Step 1 — Create hotfix branch from main
+
+```bash
+git checkout main
+git pull
+git checkout -b hotfix/<bug-name>
+```
+
+---
+
+### Step 2 — Fix the bug and commit
+
+```bash
+git add .
+git commit -m "Fix production issue"
+```
+
+---
+
+### Step 3 — Merge into main and deploy immediately
+
+```bash
+git checkout main
+git merge hotfix/<bug-name>
+```
+
+Deploy the updated version to production.
+
+---
+
+### Step 4 — Merge the same fix into develop
+
+This ensures the bug does not reappear in the next release.
+
+```bash
+git checkout develop
+git merge hotfix/<bug-name>
+```
+
+---
+
+### Step 5 — Delete hotfix branch
+
+```bash
+git branch -d hotfix/<bug-name>
+```
+
+---
+
+## 3. How Bug Fixes Are Managed in Future Releases
+
+| Bug Location | Branch Used                | Included in Next Release? |
+| ------------ | -------------------------- | ------------------------- |
+| Development  | bugfix branch from develop | Yes (already in develop)  |
+| Production   | hotfix branch from main    | Yes (merged into develop) |
+
+---
+
+## 4. Important Rule
+
+Always merge production hotfixes into develop.
+
+If you skip this step, the bug may return in the next release.
+
+---
+
+## 5. Typical Bug Fix Flow
+
+### Development Bug
+
+bugfix branch → merge into develop → included in next release
+
+### Production Bug
+
+hotfix branch → merge into main → deploy
+hotfix branch → merge into develop → future releases safe
+
+---
+
+## 6. Best Practices
+
+* Never fix bugs directly in main or develop
+* Always create a dedicated branch
+* Merge fixes into the correct base branch
+* Sync production fixes with develop
+* Delete temporary branches after merging
+
+---
+
+## 7. Quick Summary
+
+* Development bugs → fix in bugfix branch → merge into develop
+* Production bugs → fix in hotfix branch → merge into main and develop
+* Future releases come from develop, so keep it updated
+
+This workflow ensures stable production and clean release management.
