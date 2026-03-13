@@ -1,7 +1,6 @@
 # Freestyle vs Pipeline Job in Jenkins
 
----
-
+--
 ## Table of Contents
 1. [What is Freestyle Job?](#1-what-is-freestyle-job)
 2. [What is Pipeline Job?](#2-what-is-pipeline-job)
